@@ -6,7 +6,7 @@ const Banner = () => {
 
 
 
-            <div className="carousel w-full h-1/4">
+            <div className="carousel w-ful h-96">
                 <div id="slide1" className="carousel-item relative w-full">
                     <img src="https://img.freepik.com/premium-photo/male-cook-white-uniform-hat-putting-salt-herbs-food-plate-with-vegetables-before-serving-while-working-restaurant-kitchen_106485-4499.jpg?size=626&ext=jpg&ga=GA1.2.1570833622.1680187286&semt=robertav1_2_sidr" className="w-full" />
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -35,6 +35,7 @@ const Banner = () => {
                         <a href="#slide1" className="btn btn-circle">❯</a>
                     </div>
                 </div>
+               
             </div>
         </div>
     );
