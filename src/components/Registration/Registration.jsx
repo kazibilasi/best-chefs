@@ -3,42 +3,34 @@ import { Link } from 'react-router-dom';
 
 const Registration = () => {
     return (
-        <div className='container mx-auto mt-12 w-1/5'>
-            <div className="form-control border p-5 rounded-md ">
-                <p className='text-center text-2xl font-medium'>Please Register</p>
-                <div className="  place-self-center p-5">
-                    <label className="label ">
-                        <span className="label-text text-xl font-medium ">Your Name</span>
-                    </label>
-                    <label className="input-group">
+        <div>
+            <div className='container mx-auto mt-12 w-1/5 place-self-center'>
+                <p className='text-2xl font-medium mb-3'>Please Register</p>
 
-                        <input type="text" placeholder="name" className="input input-bordered" />
+                <form  >
+                    <label htmlFor="">
+                        <p className='text-xl font-medium mb-2'>Your Email</p>
+                        <input className='border rounded p-2' type="email" name="email" placeholder='email' id="" required />
                     </label>
-                    <label className="label ">
-                        <span className="label-text text-xl font-medium ">Your Email</span>
+                    <label htmlFor="">
+                        <p className='text-xl font-medium mb-2'>Your Name</p>
+                        <input className='border rounded p-2' type="text" name="name" placeholder='name' id="" required />
                     </label>
-                    <label className="input-group">
+                    <label htmlFor="">
+                        <p className='text-xl font-medium mb-2'>Your Password</p>
+                        <input className='border rounded p-2' type="password" name="password" placeholder='password' id="" required />
+                    </label><br />
+                    <label htmlFor="">
+                        <p className='text-xl font-medium mb-2'>Photo URL</p>
+                        <input className='border rounded p-2' type="url" name="Photo url" placeholder='photo url' id="" required />
+                    </label><br />
+                    <button className='btn btn-primary mt-3'>Submit</button>
 
-                        <input type="email" placeholder="email" className="input input-bordered" />
-                    </label>
-                    <label className="label">
-                        <span className="label-text text-xl font-medium">Your Password</span>
-                    </label>
-                    <label className="input-group ">
+                </form>
+                <button className='btn btn-primary mt-3'>Sign in with Google</button>
+                <button className='btn btn-primary mt-3'>Sign in with GitHub</button><br />
+                <Link to="/login" className='text-blue-500'>Already have an account? Please Login.</Link >
 
-                        <input type="Password" placeholder="password" className="input input-bordered" />
-                    </label>
-                    <label className="label">
-                        <span className="label-text text-xl font-medium">Photo URL</span>
-                    </label>
-                    <label className="input-group ">
-
-                        <input type="url" placeholder="photo url" className="input input-bordered" />
-                    </label>
-                    <Link to = "/login" className=' mt-10'>Already have an account? Please log in.</Link>
-
-                </div>
-                
 
             </div>
         </div>

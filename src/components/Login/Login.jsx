@@ -1,32 +1,54 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import app from '../../../firebase.config';
+
 
 const Login = () => {
+
+    const auth = getAuth(app);
+    const handleLogin = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password)
+
+        createUserWithEmailAndPassword(auth, email, password)
+            .than(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser)
+                form.reset();
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
     return (
         <div className='container mx-auto mt-12 w-1/5'>
-            <div className="form-control border p-5 rounded-md ">
-                <p className='text-center text-2xl font-medium'>Please Login</p>
-                <div className="  place-self-center p-5">
-                    <label className="label ">
-                        <span className="label-text text-xl font-medium ">Your Email</span>
-                    </label>
-                    <label className="input-group">
+            <p className='text-2xl font-medium mb-3'>Please Login</p>
 
-                        <input type="email" placeholder="email" className="input input-bordered" />
-                    </label>
-                    <label className="label">
-                        <span className="label-text text-xl font-medium">Your Password</span>
-                    </label>
-                    <label className="input-group ">
+            <form onSubmit={handleLogin} >
+                <label htmlFor="">
+                    <p className='text-xl font-medium mb-2'>Your Email</p>
+                    <input className='border rounded p-2' type="email" name="email" placeholder='email' id="" required />
+                </label>
+                <label htmlFor="">
+                    <p className='text-xl font-medium mb-2'>Your Password</p>
+                    <input className='border rounded p-2' type="password" name="password" placeholder='password' id="" required />
+                </label><br />
+                <button className='btn btn-primary mt-3'>Submit</button>
 
-                        <input type="Password" placeholder="password" className="input input-bordered" />
-                    </label>
-                    <Link to = "/registration" className=' mt-10'>New in this page? Please Register.</Link>
+            </form>
 
-                </div>
-                
+            <button className='btn btn-primary mt-3'>Sign in with Google</button>
+            <button className='btn btn-primary mt-3'>Sign in with GitHub</button><br />
 
-            </div>
+            <Link to="/registration" className='text-blue-500'>New in this page? Please Register</Link >
+
+
+
         </div>
     );
 };
