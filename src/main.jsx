@@ -14,11 +14,14 @@ import ChefRecipes from './components/Home/ChefRecipes';
 import Login from './components/Login/Login';
 import Registration from './components/Registration/Registration';
 import AuthProviders from './components/AuthProviders/AuthProviders';
+import ErrorPage from './components/ErrorPage/ErrorPage';
+
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",

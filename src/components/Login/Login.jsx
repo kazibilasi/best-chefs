@@ -39,10 +39,21 @@ const Login = () => {
             })
     }
 
+    const handleGithubRegister = () => {
+        signInWithGithub()
+            .than(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
     return (
-        <div className='container mx-auto mt-14 p-10 place-self-center justify-around lg:flex sm:flex-col-1'>
-            <div className='mt-20'>
-                <p className='text-2xl font-medium mb-3'>Please Login</p>
+        <div className='container mx-auto mt-14 p-10 place-self-center justify-around lg:flex sm:flex-col-1 sm:mt-5'>
+            <div className='mt-20 w-2/5'>
+                <p className='text-2xl font-medium mb-3 text-center'>Please Login</p>
 
                 <form onSubmit={handleLogin} >
                     <label htmlFor="">
@@ -58,7 +69,7 @@ const Login = () => {
                 </form>
 
                 <button onClick={handleGoogleSignIn} className='btn btn-outline mt-3 w-full'><span className='mr-3'><ImGoogle></ImGoogle></span>Log in with Google</button>
-                <button className='btn btn-outline mt-3 w-full'> <span className='mr-3'><ImGithub></ImGithub></span> Log in with GitHub</button><br />
+                <button onClick={handleGithubRegister} className='btn btn-outline mt-3 w-full'> <span className='mr-3'><ImGithub></ImGithub></span> Log in with GitHub</button><br />
 
                 <Link to="/registration" className='text-blue-500'>New in this page? Please Register</Link >
             </div>

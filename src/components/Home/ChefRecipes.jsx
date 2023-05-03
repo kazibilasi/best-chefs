@@ -107,7 +107,7 @@ const ChefRecipes = () => {
                                 <li>{newData?.recipes_info?.ingredients?.[5]}</li>
                             </ul>
                             <div >
-                                <p className=' flex '><ImStarFull></ImStarFull> <ImStarFull></ImStarFull><ImStarFull></ImStarFull><ImStarFull></ImStarFull><ImStarHalf></ImStarHalf> <span className='ml-2 self-center'>{newData?.recipes_info?.rating}</span></p>
+                                <p className=' flex  '><ImStarFull></ImStarFull> <ImStarFull></ImStarFull><ImStarFull></ImStarFull><ImStarFull></ImStarFull><ImStarHalf></ImStarHalf> <span className='ml-2 mt-0 self-center'>{newData?.recipes_info?.rating}</span></p>
 
                             </div>
                             <button onClick={notify} className="btn btn-primary gap-2">
