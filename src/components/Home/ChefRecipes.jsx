@@ -13,7 +13,7 @@ const ChefRecipes = () => {
     // console.log(Id)
     useEffect(() => {
 
-        fetch('http://localhost:5000/chefsdata')
+        fetch('https://assignment-10-server-kazibilasi.vercel.app/chefsdata')
             .then(res => res.json())
             .then(data => setData(data))
 

@@ -58,12 +58,12 @@ const Registration = () => {
 
                     <form onSubmit={handleRegister}  >
                         <label htmlFor="">
-                            <p className='text-xl font-medium mb-2'>Your Email</p>
-                            <input className='border rounded p-2 w-full' type="email" name="email" placeholder='email' id="" required />
+                            <p className='text-xl font-medium mb-2'>Your Name</p>
+                            <input className='border rounded p-2 w-full' type="text" name="text" placeholder='text' id="" required />
                         </label>
                         <label htmlFor="">
-                            <p className='text-xl font-medium mb-2'>Your Name</p>
-                            <input className='border rounded p-2 w-full' type="text" name="name" placeholder='name' id="" />
+                            <p className='text-xl font-medium mb-2'>Your Email</p>
+                            <input className='border rounded p-2 w-full' type="email" name="email" placeholder='email' id="" />
                         </label>
                         <label htmlFor="">
                             <p className='text-xl font-medium mb-2'>Your Password</p>
