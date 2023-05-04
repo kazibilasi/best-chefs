@@ -1,7 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import app from '../../../firebase.config';
+
 import { AuthContext } from '../AuthProviders/AuthProviders';
 import { ImGoogle, ImGithub } from "react-icons/im";
 
@@ -9,6 +8,7 @@ import { ImGoogle, ImGithub } from "react-icons/im";
 const Login = () => {
 
     const { user, signIn, signInWithGoogle } = useContext(AuthContext);
+    const [error, setError] = useState(' ')
 
     const handleLogin = event => {
         event.preventDefault();
@@ -17,15 +17,26 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password)
 
+        if(password.length<6){
+            setError('password musth be 6 characters or longer')
+            return 
+        }
+        else{
+            setError('')
+           return 
+        }
+
         signIn(email, password)
             .than(result => {
                 const loggedUser = result.user;
-                setUser(loggedUser)
+                console.log(loggedUser)
                 form.reset();
             })
             .catch(error => {
                 console.log(error)
             })
+
+          
     }
 
     const handleGoogleSignIn = () => {
@@ -64,6 +75,7 @@ const Login = () => {
                         <p className='text-xl font-medium mb-2'>Your Password</p>
                         <input className='border rounded p-2 w-full' type="password" name="password" placeholder='password' id="" required />
                     </label><br />
+                    <p className=' text-red-500'>{error}</p>
                     <button className='btn btn-primary mt-3 w-full'>Submit</button>
 
                 </form>
