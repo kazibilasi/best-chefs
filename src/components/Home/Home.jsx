@@ -6,7 +6,7 @@ const Home = () => {
     const [chefsInfo, setChefsInfo] = useState([]);
 
     useEffect(() => {
-        fetch('https://assignment-10-server-kazibilasi.vercel.app/chefsdata')
+        fetch('https://assignment-10-server-rust-three.vercel.app/chefsdata')
             .then(res => res.json())
             .then(data => setChefsInfo(data))
             
