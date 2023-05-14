@@ -18,11 +18,7 @@ const AuthProviders = ({children}) => {
 
     }
 
-    const updateLogin = ()=>{
-       return updateProfile(auth.user, {
-            displayName: "Jane Q. currentUser", photoURL: "https://example.com/jane-q-user/profile.jpg"
-          })
-    }
+  
 
     const signIn = (email, password)=>{
         return signInWithEmailAndPassword(auth, email, password);
@@ -59,7 +55,7 @@ const AuthProviders = ({children}) => {
         signIn,
         logOut,
         signInWithGoogle,
-        updateLogin,
+       
         signInWithGithub
 
     }

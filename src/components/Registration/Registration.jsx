@@ -15,7 +15,7 @@ const Registration = () => {
         console.log(email, password)
 
         createUser(email, password)
-            .than(result => {
+            .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser)
                 form.reset();
@@ -28,7 +28,7 @@ const Registration = () => {
 
     const handleGoogleRegister = () => {
         signInWithGoogle()
-            .than(result => {
+            .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser)
             })
@@ -38,7 +38,7 @@ const Registration = () => {
     }
     const handleGithubRegister = () => {
         signInWithGithub()
-            .than(result => {
+            .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser)
             })

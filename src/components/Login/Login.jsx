@@ -7,7 +7,7 @@ import { ImGoogle, ImGithub } from "react-icons/im";
 
 const Login = () => {
 
-    const { user, signIn, signInWithGoogle } = useContext(AuthContext);
+    const { user, signIn, signInWithGithub } = useContext(AuthContext);
     const [error, setError] = useState(' ')
 
     const handleLogin = event => {
@@ -19,29 +19,33 @@ const Login = () => {
 
         if(password.length<6){
             setError('password musth be 6 characters or longer')
-            return 
+            
         }
         else{
             setError('')
-           return 
+            
         }
 
         signIn(email, password)
-            .than(result => {
-                const loggedUser = result.user;
-                console.log(loggedUser)
-                form.reset();
-            })
-            .catch(error => {
-                console.log(error)
-            })
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser)
+            form.reset();
+        })
+        .catch(error => {
+            console.log(error)
+        })
+
+        
+
+       
 
           
     }
 
     const handleGoogleSignIn = () => {
-        signInWithGoogle()
-            .than(result => {
+        signInWithGithub()
+            .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser)
             })
@@ -52,7 +56,7 @@ const Login = () => {
 
     const handleGithubRegister = () => {
         signInWithGithub()
-            .than(result => {
+            .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser)
             })
@@ -81,7 +85,7 @@ const Login = () => {
                 </form>
 
                 <button onClick={handleGoogleSignIn} className='btn btn-outline mt-3 w-full'><span className='mr-3'><ImGoogle></ImGoogle></span>Log in with Google</button>
-                <button onClick={handleGithubRegister} className='btn btn-outline mt-3 w-full'> <span className='mr-3'><ImGithub></ImGithub></span> Log in with GitHub</button><br />
+                <button onClick={ handleGithubRegister} className='btn btn-outline mt-3 w-full'> <span className='mr-3'><ImGithub></ImGithub></span> Log in with GitHub</button><br />
 
                 <Link to="/registration" className='text-blue-500'>New in this page? Please Register</Link >
             </div>
